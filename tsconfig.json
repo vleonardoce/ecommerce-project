@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ecommerce-ui": [
+        "dist/ecommerce-ui"
+      ],
+      "ecommerce-ui/*": [
+        "dist/ecommerce-ui/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
