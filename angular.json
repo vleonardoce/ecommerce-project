@@ -124,6 +124,41 @@
           }
         }
       }
+    },
+    "ecommerce-ui": {
+      "projectType": "library",
+      "root": "projects/ecommerce-ui",
+      "sourceRoot": "projects/ecommerce-ui/src",
+      "prefix": "ui",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ecommerce-ui/tsconfig.lib.json",
+            "project": "projects/ecommerce-ui/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ecommerce-ui/src/test.ts",
+            "tsConfig": "projects/ecommerce-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/ecommerce-ui/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ecommerce-ui/tsconfig.lib.json",
+              "projects/ecommerce-ui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ecommerce-app"
 }
