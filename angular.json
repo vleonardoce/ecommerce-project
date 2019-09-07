@@ -28,9 +28,14 @@
               "projects/ecommerce-app/src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
               "projects/ecommerce-app/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -92,9 +97,7 @@
               "projects/ecommerce-app/src/favicon.ico",
               "projects/ecommerce-app/src/assets"
             ],
-            "styles": [
-              "projects/ecommerce-app/src/styles.scss"
-            ],
+            "styles": ["projects/ecommerce-app/src/styles.scss"],
             "scripts": []
           }
         },
@@ -106,9 +109,7 @@
               "projects/ecommerce-app/tsconfig.spec.json",
               "projects/ecommerce-app/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -153,12 +154,11 @@
               "projects/ecommerce-ui/tsconfig.lib.json",
               "projects/ecommerce-ui/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ecommerce-app"
 }
