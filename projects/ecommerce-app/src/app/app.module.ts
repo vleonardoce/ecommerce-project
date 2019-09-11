@@ -17,7 +17,7 @@ import { environment } from '../environments/environment.prod';
     CoreModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
