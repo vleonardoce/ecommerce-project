@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SignInService } from './sign-in.service';
 
 @Component({
   selector: 'ecm-sign-in',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  constructor(private signInService: SignInService) { }
 
   ngOnInit() {
   }
 
+  signInWithGoogle() {
+    this.signInService.signInWithGoogle();
+  }
 }
