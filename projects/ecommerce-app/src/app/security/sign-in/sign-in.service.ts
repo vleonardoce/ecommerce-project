@@ -7,12 +7,20 @@ export class SignInService {
 
   constructor(private fAuth: AngularFireAuth) { }
 
-  getUser() {
-
+  getSignedInUser() {
+    return this.fAuth.authState;
   }
 
-  signIn() {
-    console.log('redirecting');
+  signIn(user) {
+    return this.fAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+  }
+
+  signOut() {
+    this.fAuth.auth.signOut();
+  }
+
+  saveUser(user) {
+    return this.fAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
   }
 
   signInWithGoogle() {

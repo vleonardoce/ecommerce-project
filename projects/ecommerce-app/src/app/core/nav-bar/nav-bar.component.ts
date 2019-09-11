@@ -1,3 +1,4 @@
+import { SignInService } from './../../security/sign-in/sign-in.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  user: firebase.User;
+
+  constructor(private signInService: SignInService) { }
 
   ngOnInit() {
+    this.signInService.getSignedInUser().subscribe(
+      (user => this.user = user)
+    );
   }
 
+  signOut() {
+    this.signInService.signOut();
+  }
 }

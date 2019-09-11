@@ -1,17 +1,17 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { SignInService } from './sign-in.service';
 import { Validators, FormBuilder } from '@angular/forms';
+import { SignInService } from '../sign-in/sign-in.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'ecm-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  selector: 'ecm-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class SignInComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   submitted = false;
-  signInForm = this.formBuilder.group({
+  registerForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required]
   });
@@ -23,15 +23,11 @@ export class SignInComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    if (this.signInForm.valid) {
-      const user = this.signInForm.value;
-      this.signInService.signIn(user).then(
+    if (this.registerForm.valid) {
+      const user = this.registerForm.value;
+      this.signInService.saveUser(user).then(
         () => this.router.navigate(['products'])
       );
     }
-  }
-
-  signInWithGoogle() {
-    this.signInService.signInWithGoogle();
   }
 }
