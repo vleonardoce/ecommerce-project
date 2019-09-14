@@ -1,5 +1,7 @@
-import { SignInService } from './../../security/sign-in/sign-in.service';
+import { SecurityService } from '../security/security.service';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ecm-nav-bar',
@@ -10,15 +12,21 @@ export class NavBarComponent implements OnInit {
 
   user: firebase.User;
 
-  constructor(private signInService: SignInService) { }
+  constructor(private securityService: SecurityService, private modalService: NgbModal, private router: Router) { }
+
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  }
 
   ngOnInit() {
-    this.signInService.getSignedInUser().subscribe(
+    this.securityService.getSignedInUser().subscribe(
       (user => this.user = user)
     );
   }
 
   signOut() {
-    this.signInService.signOut();
+    this.securityService.signOut().then(
+      () => this.router.navigate([''])
+    );
   }
 }

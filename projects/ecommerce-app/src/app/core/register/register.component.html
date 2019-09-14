@@ -1,0 +1,48 @@
+<form [formGroup]="registerForm" class="m-4" (ngSubmit)="onSubmit()">
+
+  <div class="form-group row" *ngIf="error">
+    <div class="col">
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="email" class="col-md-3 col-form-label text-md-right">
+      Nombres
+    </label>
+    <div class="col-md-9">
+      <input type="text" id="names" class="form-control" formControlName="names"
+        [ngClass]="{'is-invalid' : isInvalidControl('names')}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="email" class="col-md-3 col-form-label text-md-right">
+      Email
+    </label>
+    <div class="col-md-9">
+      <input type="text" id="email" class="form-control" formControlName="email"
+        [ngClass]="{'is-invalid' : isInvalidControl('email')}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="password" class="col-md-3 col-form-label text-md-right">
+      Password
+    </label>
+    <div class="col-md-9">
+      <input type="password" id="password" class="form-control" formControlName="password"
+        [ngClass]="{'is-invalid' : isInvalidControl('password')}">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col offset-md-3">
+      <button type="submit" class="btn btn-primary">
+        Crea tu cuenta
+      </button>
+    </div>
+  </div>
+</form>
