@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductsModule } from './products/products.module';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { ProductSelledComponent } from './metrics/product-selled/product-selled.component';
+import { MetricsModule } from './metrics/metrics.module';
 
 const routes: Routes = [
   {
@@ -18,11 +20,15 @@ const routes: Routes = [
   {
     path: 'product-detail',
     component: ProductDetailComponent
+  },
+  {
+    path: 'product-selled',
+    component: ProductSelledComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), ProductsModule, SecurityModule],
+  imports: [RouterModule.forRoot(routes), ProductsModule, MetricsModule, SecurityModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
