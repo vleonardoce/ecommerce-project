@@ -1,10 +1,10 @@
-.dropzone { 
+.dropzone {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; 
+  flex-direction: column;
   font-weight: 200;
-  height: 100px;
+  height: 160px;
   border: 2px dashed gray;
   color: gray;
   border-radius: 5px;
@@ -12,11 +12,31 @@
   margin: 10px 0;
 
   &.hovering {
-      border: 2px solid #f16624;
-      color: #dadada !important;
+    border: 2px solid green;
+    color: #dadada !important;
   }
 
-  .file-label {
-      font-size: 1.2em;
+  &.is-invalid {
+    border: 1px solid #dc3545;
+    color: #dc3545;
   }
+}
+
+.preview {
+  padding: 10px;
+}
+
+.preview:hover img {
+  opacity: 0.5;
+}
+
+.preview:hover button {
+  display: block;
+  top: 0;
+  margin: 15px;
+}
+
+.preview button {
+  position: absolute;
+  display: none;
 }
