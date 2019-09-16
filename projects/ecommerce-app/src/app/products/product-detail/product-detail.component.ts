@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductsService } from '../products/products.service';
 
 @Component({
   selector: 'ecm-product-detail',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
+  id = this.route.snapshot.paramMap.get('uid');
+  item = this.productService.get(this.id);
+
+  constructor(private route: ActivatedRoute, private productService: ProductsService) { }
 
   ngOnInit() {
   }

@@ -7,12 +7,23 @@ import { map } from 'rxjs/operators';
 })
 export class ProductsService {
 
+  private basePath = '/products';
+
   constructor(private firestore: AngularFirestore) { }
 
-  get() {
-    return this.firestore.collection('products').snapshotChanges().pipe(
+  get(id) {
+    return this.firestore.doc(`${this.basePath}/${id}`).snapshotChanges().pipe(
+      map(item => {
+        return {
+          ...item.payload.data()
+        };
+      }));
+  }
+
+  getAll() {
+    return this.firestore.collection(this.basePath).snapshotChanges().pipe(
       map(response => response.map(item => {
-        return { ...item.payload.doc.data() };
+        return { id: item.payload.doc.id, ...item.payload.doc.data() };
       }))
     );
   }

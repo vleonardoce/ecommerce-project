@@ -8,7 +8,7 @@ import { ProductsService } from '../products/products.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products = this.productService.get();
+  products = this.productService.getAll();
 
   constructor(private productService: ProductsService) { }
 

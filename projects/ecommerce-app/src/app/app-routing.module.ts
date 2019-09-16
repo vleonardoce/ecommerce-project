@@ -16,6 +16,10 @@ const routes: Routes = [
     component: ProductListComponent
   },
   {
+    path: 'producto/:uid',
+    component: ProductDetailComponent
+  },
+  {
     path: 'publicar',
     component: PublishComponent
   },
@@ -28,17 +32,13 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'product-detail',
-    component: ProductDetailComponent
-  },
-  {
     path: 'product-selled',
     component: ProductSelledComponent
   }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes), ProductsModule, MetricsModule, SalesModule],
+  imports: [RouterModule.forRoot(routes), ProductsModule, MetricsModule, SalesModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
