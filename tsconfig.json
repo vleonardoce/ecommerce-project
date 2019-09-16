@@ -24,6 +24,12 @@
       ],
       "ecommerce-ui/*": [
         "dist/ecommerce-ui/*"
+      ],
+      "ecommerce-metrics": [
+        "dist/ecommerce-metrics"
+      ],
+      "ecommerce-metrics/*": [
+        "dist/ecommerce-metrics/*"
       ]
     }
   },
