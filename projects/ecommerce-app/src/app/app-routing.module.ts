@@ -6,6 +6,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ProfileComponent } from './core/profile/profile.component';
 import { PublishComponent } from './sales/publish/publish.component';
 import { SalesModule } from './sales/sales.module';
+import { SalesComponent } from './sales/sales/sales.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'publicar',
     component: PublishComponent
+  },
+  {
+    path: 'ventas',
+    component: SalesComponent
   },
   {
     path: 'perfil',

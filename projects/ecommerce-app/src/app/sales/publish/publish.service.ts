@@ -1,3 +1,4 @@
+import { SecurityService } from './../../core/security/security.service';
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';

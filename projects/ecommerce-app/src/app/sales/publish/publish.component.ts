@@ -1,3 +1,4 @@
+import { UserService } from './../../core/security/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { PublishService } from './publish.service';
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PublishComponent implements OnInit {
 
+  user = null;
   submitted = false;
   publishForm = this.formBuilder.group({
     name: ['', Validators.required],
@@ -25,9 +27,13 @@ export class PublishComponent implements OnInit {
   files: File[] = [];
   previews = [];
 
-  constructor(private formBuilder: FormBuilder, private publishService: PublishService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private publishService: PublishService, private router: Router,
+    private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.get().subscribe(
+      (user => this.user = user)
+    );
   }
 
   isInvalidControl(name: string) {
@@ -73,8 +79,9 @@ export class PublishComponent implements OnInit {
       response => {
         const product = this.publishForm.value;
         product.images = response;
+        product.user = this.user.uid;
         this.publishService.saveProduct(product).then(
-          () => this.router.navigate([''])
+          () => this.router.navigate(['sales'])
         );
       }
     );

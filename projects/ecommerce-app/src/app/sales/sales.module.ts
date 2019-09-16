@@ -4,10 +4,12 @@ import { PublishComponent } from './publish/publish.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EcommerceUiModule } from 'projects/ecommerce-ui/src/public-api';
+import { SalesComponent } from './sales/sales.component';
 
 @NgModule({
   declarations: [
-    PublishComponent
+    PublishComponent,
+    SalesComponent
   ],
   imports: [
     CommonModule,

@@ -46,7 +46,6 @@
           <div class="dropzone" uiDropzone (hovered)="toggleHover($event)" (dropped)="onDrop($event)"
             [class.hovering]="isHovering" [class.is-invalid]="isInvalidFilesLength()">
 
-
             <i class="fa fa-cloud-upload fa-2x m-3"></i>
 
             <div class="custom-file w-50">
@@ -54,9 +53,11 @@
                 (change)="onDrop($event.target.files)" multiple>
               <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
             </div>
-
           </div>
-          <small class="form-text text-muted">Arrastra y suelta las imagenes. Solo jpg y png. Máximo 6 imagenes.</small>
+
+          <small class="form-text text-muted">
+            Arrastra y suelta las imagenes. Solo jpg y png. Máximo 6 archivos.
+          </small>
         </div>
 
       </div>
