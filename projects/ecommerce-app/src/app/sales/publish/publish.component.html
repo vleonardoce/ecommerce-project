@@ -1,0 +1,63 @@
+<form [formGroup]="publishForm" class="m-4" (ngSubmit)="onSubmit()">
+
+    <div class="form-group row">
+        <label for="email" class="col-md-3 col-form-label text-md-right">
+            Producto
+        </label>
+        <div class="col-md-9">
+            <input type="text" id="names" class="form-control" formControlName="names"
+                [ngClass]="{'is-invalid' : isInvalidControl('names')}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="email" class="col-md-3 col-form-label text-md-right">
+            Precio
+        </label>
+        <div class="col-md-9">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                </div>
+                <input type="text" class="form-control">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="email" class="col-md-3 col-form-label text-md-right">
+            Descripción
+        </label>
+        <div class="col-md-9">
+            <textarea type="text" id="names" class="form-control" formControlName="names"
+                [ngClass]="{'is-invalid' : isInvalidControl('names')}"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+
+        <label for="email" class="col-md-3 col-form-label text-md-right">
+            Fotos
+        </label>
+        <div class="col-md-9">
+            <div class="dropzone" uiDropzone (hovered)="toggleHover($event)" (dropped)="onDrop($event)"
+                [class.hovering]="isHovering">
+                <i class="fa fa-cloud-upload fa-2x"></i>
+            </div>
+
+            <div *ngFor="let file of files">
+                <ecm-upload-file [file]="file"></ecm-upload-file>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col offset-md-3">
+            <button type="submit" class="btn btn-primary">
+                Publicar
+            </button>
+        </div>
+    </div>
+</form>

@@ -21,17 +21,17 @@ export class RegisterComponent {
     'auth/email-already-in-use': 'El email ya está en uso por otra cuenta'
   };
 
-  constructor(private formBuilder: FormBuilder, private signInService: SecurityService, private modalService: NgbModal) { }
+  constructor(private formBuilder: FormBuilder, private securityService: SecurityService, private modalService: NgbModal) { }
 
   onSubmit() {
     this.submitted = true;
     if (this.registerForm.valid) {
       const user = this.registerForm.value;
 
-      this.signInService.saveUser(user)
+      this.securityService.saveUser(user)
         .then(response => {
           response.user.displayName = user.names;
-          this.signInService.saveUserInfo(response.user);
+          this.securityService.saveUserInfo(response.user);
           this.modalService.dismissAll();
         })
         .catch(response => {
