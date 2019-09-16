@@ -1,0 +1,42 @@
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: 200;
+  height: 160px;
+  border: 2px dashed gray;
+  color: gray;
+  border-radius: 5px;
+  background: white;
+  margin: 10px 0;
+
+  &.hovering {
+    border: 2px solid green;
+    color: #dadada !important;
+  }
+
+  &.is-invalid {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+  }
+}
+
+.preview {
+  padding: 10px;
+}
+
+.preview:hover img {
+  opacity: 0.5;
+}
+
+.preview:hover button {
+  display: block;
+  top: 0;
+  margin: 15px;
+}
+
+.preview button {
+  position: absolute;
+  display: none;
+}

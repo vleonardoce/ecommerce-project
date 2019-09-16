@@ -1,10 +1,56 @@
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
-        Ecommeerce
-    </a>
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
-        </li>
-    </ul>
+<nav class="navbar fixed-top navbar-light bg-light border-bottom">
+  <a class="navbar-brand" href="#">
+    E-Commerce
+  </a>
+
+  <form *ngIf="!user" class="form-inline">
+    <button class="btn btn-sm btn-outline-primary mx-2" type="button" (click)="open(signIn)">
+      Ingresar
+    </button>
+    <button class="btn btn-sm btn-outline-primary mx-2" type="button" (click)="open(register)">
+      Registrarse
+    </button>
+  </form>
+
+  <ul *ngIf="user" class="nav nav-pills">
+    <li *ngIf="user" class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+        aria-expanded="false">
+        {{ user.email }}
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="perfil">Perfil</a>
+        <a class="dropdown-item" (click)="signOut()">Salir</a>
+      </div>
+    </li>
+  </ul>
+
 </nav>
+
+<ng-template #signIn let-modal>
+  <div class="modal-header">
+    <h6 class="modal-title">
+      ¡Hola! Ingresa con Google o tus credenciales
+    </h6>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ecm-sign-in></ecm-sign-in>
+  </div>
+</ng-template>
+
+<ng-template #register let-modal>
+  <div class="modal-header">
+    <h6 class="modal-title">
+      Completa tus datos
+    </h6>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ecm-register></ecm-register>
+  </div>
+</ng-template>

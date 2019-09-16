@@ -1,12 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { EcommerceUiComponent } from './ecommerce-ui.component';
-
-
+import { DropzoneDirective } from './directives/dropzone/dropzone.directive';
 
 @NgModule({
-  declarations: [EcommerceUiComponent],
-  imports: [
+  declarations: [
+    EcommerceUiComponent,
+    DropzoneDirective
   ],
-  exports: [EcommerceUiComponent]
+  imports: [
+    CommonModule
+  ],
+  exports: [
+    EcommerceUiComponent,
+    DropzoneDirective
+  ]
 })
 export class EcommerceUiModule { }
