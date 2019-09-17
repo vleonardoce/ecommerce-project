@@ -15,7 +15,7 @@
 
         <p class="price-detail-wrap">
           <span class="price h3 text-warning">
-            <span class="currency">S/ </span><span class="num"> {{(item | async)?.price}}</span>
+            <span class="num"> {{(item | async)?.price | soles}}</span>
           </span>
         </p>
         <dl class="item-property">
@@ -40,7 +40,7 @@
           </div>
         </div>
         <hr>
-        <a href="#" class="btn btn-lg btn-primary text-uppercase"> Comprar ahora </a>
+        <a routerLink="/ordenar" class="btn btn-lg btn-primary text-uppercase"> Comprar ahora </a>
       </article>
     </aside>
   </div>

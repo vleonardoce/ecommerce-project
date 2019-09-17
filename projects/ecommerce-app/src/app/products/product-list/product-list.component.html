@@ -1,23 +1,18 @@
 <div class="row">
-  <div class="col-md-4" *ngFor="let product of products | async">
+  <div class="col-md-3" *ngFor="let product of products | async">
     <figure class="card card-product">
-      <div class="img-wrap"><img src="{{product.images[0]}}"></div>
-      <figcaption class="info-wrap">
-        <h4 class="title">
-          <a class="nav-link text-truncate" [routerLink]="['producto', product.id]">
-            {{ product.name }}
-          </a>
-        </h4>
-        <p class="desc text-truncate">
-          {{product.description}}
-        </p>
-      </figcaption>
-      <div class="bottom-wrap">
-        <a href="" class="btn btn-sm btn-primary float-right">Comprar</a>
-        <div class="price-wrap h5">
-          <span class="price-new">S/ {{ product.price }}</span>
-        </div>
+      <div class="img-wrap">
+        <img src="{{product.images[0]}}">
       </div>
+      <figcaption class="info-wrap">
+        <h6 class="title text-dots"><a [routerLink]="['producto', product.id]">{{ product.name }}</a></h6>
+        <div class="action-wrap">
+          <a routerLink="/ordenar" class="btn btn-primary btn-sm float-right"> Comprar </a>
+          <div class="price-wrap h5">
+            <span class="price-new">{{ product.price | soles}}</span>
+          </div>
+        </div>
+      </figcaption>
     </figure>
   </div>
 </div>

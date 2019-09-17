@@ -1,21 +1,25 @@
 import { UserService } from './../../core/security/user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { PublishService } from './publish.service';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SignInComponent } from '../../core/sign-in/sign-in.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ecm-publish',
   templateUrl: './publish.component.html',
   styleUrls: ['./publish.component.scss']
 })
-export class PublishComponent implements OnInit {
+export class PublishComponent implements OnInit, OnDestroy {
 
-  user = null;
+  user: firebase.User;
   submitted = false;
   publishForm = this.formBuilder.group({
     name: ['', Validators.required],
     price: ['', [Validators.required]],
+    stock: ['', [Validators.required]],
     description: ['', [Validators.required]]
   });
 
@@ -27,13 +31,19 @@ export class PublishComponent implements OnInit {
   files: File[] = [];
   previews = [];
 
+  userSubs: Subscription;
+
   constructor(private formBuilder: FormBuilder, private publishService: PublishService, private router: Router,
-    private userService: UserService) { }
+    private userService: UserService, private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.userService.get().subscribe(
+    this.userSubs = this.userService.get().subscribe(
       (user => this.user = user)
     );
+  }
+
+  ngOnDestroy() {
+    this.userSubs.unsubscribe();
   }
 
   isInvalidControl(name: string) {
@@ -71,10 +81,20 @@ export class PublishComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+
     if (this.publishForm.invalid || this.isInvalidFilesLength()) {
       return;
     }
 
+    if (!this.user) {
+      this.modalService.open(SignInComponent, { ariaLabelledBy: 'modal-basic-title' });
+      return;
+    }
+
+    this.saveProduct();
+  }
+
+  saveProduct() {
     this.publishService.uploadFiles(this.files).subscribe(
       response => {
         const product = this.publishForm.value;

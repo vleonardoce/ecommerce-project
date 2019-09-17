@@ -1,46 +1,56 @@
-<form [formGroup]="signInForm" class="m-4" (ngSubmit)="signIn()">
+<div class="modal-header">
+  <h6 class="modal-title">
+    ¡Hola! Ingresa con Google o tus credenciales
+  </h6>
+  <button type="button" class="close" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="signInForm" class="m-4" (ngSubmit)="signIn()">
 
-  <div class="form-group mb-5">
-    <button type="button" class="btn btn-info btn-block" (click)="signInWithGoogle()">
-      <i class="fa fa-google"></i>
-      Google
-    </button>
-  </div>
-
-  <div class="form-group row" *ngIf="error">
-    <div class="col">
-      <div class="alert alert-danger" role="alert">
-        {{ error }}
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="email" class="col-md-3 col-form-label text-md-right">
-      Email
-    </label>
-    <div class="col-md-9">
-      <input type="text" id="email" class="form-control" formControlName="email"
-        [ngClass]="{'is-invalid' : isInvalidControl('email')}">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="password" class="col-md-3 col-form-label text-md-right">
-      Password
-    </label>
-    <div class="col-md-9">
-      <input type="password" id="password" class="form-control" formControlName="password"
-        [ngClass]="{'is-invalid' : isInvalidControl('password')}">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <div class="col offset-md-3">
-      <button type="submit" class="btn btn-primary">
-        Ingresar
+    <div class="form-group mb-5">
+      <button type="button" class="btn btn-info btn-block" (click)="signInWithGoogle()">
+        <i class="fa fa-google"></i>
+        Google
       </button>
     </div>
-  </div>
 
-</form>
+    <div class="form-group row" *ngIf="error">
+      <div class="col">
+        <div class="alert alert-danger" role="alert">
+          {{ error }}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="email" class="col-md-3 col-form-label text-md-right">
+        Email
+      </label>
+      <div class="col-md-9">
+        <input type="text" id="email" class="form-control" formControlName="email"
+          [ngClass]="{'is-invalid' : isInvalidControl('email')}">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="password" class="col-md-3 col-form-label text-md-right">
+        Password
+      </label>
+      <div class="col-md-9">
+        <input type="password" id="password" class="form-control" formControlName="password"
+          [ngClass]="{'is-invalid' : isInvalidControl('password')}">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col offset-md-3">
+        <button type="submit" class="btn btn-primary">
+          Ingresar
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>

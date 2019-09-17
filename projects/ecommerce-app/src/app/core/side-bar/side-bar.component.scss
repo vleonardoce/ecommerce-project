@@ -29,6 +29,17 @@
   color: #333;
 }
 
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.feather {
+  font-size: 1.2em;
+  width: 20px;
+  vertical-align: text-bottom;
+}
+
 .sidebar .nav-link.active {
   color: #007bff;
 }

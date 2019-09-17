@@ -1,20 +1,25 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SecurityService } from '../security/security.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ecm-profile',
   templateUrl: './profile.component.html'
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
 
   user = {};
+  userSubscription: Subscription;
 
   constructor(private securityService: SecurityService) { }
 
   ngOnInit() {
-    this.securityService.getUserInfo().subscribe(
+    this.userSubscription = this.securityService.getUserInfo().subscribe(
       (user => this.user = user)
     );
   }
 
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
+  }
 }

@@ -1,3 +1,4 @@
+import { SignInComponent } from './../sign-in/sign-in.component';
 import { SecurityService } from '../security/security.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -13,6 +14,10 @@ export class NavBarComponent implements OnInit {
   user: firebase.User;
 
   constructor(private securityService: SecurityService, private modalService: NgbModal, private router: Router) { }
+
+  openSignIn() {
+    this.modalService.open(SignInComponent, { ariaLabelledBy: 'modal-basic-title' });
+  }
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
