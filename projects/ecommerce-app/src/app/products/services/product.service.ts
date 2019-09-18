@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ProductsService {
+@Injectable()
+export class ProductService {
 
   private basePath = '/products';
 
@@ -26,6 +24,10 @@ export class ProductsService {
         return { id: item.payload.doc.id, ...item.payload.doc.data() };
       }))
     );
+  }
+
+  add(product) {
+    return this.firestore.collection('products').add(product);
   }
 
   bought() {

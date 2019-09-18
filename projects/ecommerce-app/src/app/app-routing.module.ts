@@ -3,15 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductsModule } from './products/products.module';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
-import { PublishComponent } from './sales/publish/publish.component';
-import { SalesModule } from './sales/sales.module';
-import { SalesComponent } from './sales/sales/sales.component';
 import { ProductSelledComponent } from './metrics/product-selled/product-selled.component';
 import { MetricsModule } from './metrics/metrics.module';
 import { AuthGuard } from './core/guards/auth.guard';
 import { ProfileComponent } from './core/profile/profile.component';
-import { ShoppingComponent } from './products/shopping/shopping.component';
-import { OrderComponent } from './products/order/order.component';
+import { ProductPublishComponent } from './products/product-publish/product-publish.component';
+import { ProductOrderComponent } from './products/product-order/product-order.component';
+import { ProductShoopingComponent } from './products/product-shooping/product-shooping.component';
 
 const routes: Routes = [
   {
@@ -29,16 +27,16 @@ const routes: Routes = [
   },
   {
     path: 'publicar',
-    component: PublishComponent
+    component: ProductPublishComponent
   },
   {
     path: 'ordenar',
-    component: OrderComponent,
+    component: ProductOrderComponent,
     canActivate: [AuthGuard]
   },
   {
     path: 'compras',
-    component: ShoppingComponent,
+    component: ProductShoopingComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -49,7 +47,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), ProductsModule, MetricsModule, SalesModule],
+  imports: [RouterModule.forRoot(routes), ProductsModule, MetricsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

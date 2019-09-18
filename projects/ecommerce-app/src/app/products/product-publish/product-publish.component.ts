@@ -1,18 +1,19 @@
-import { UserService } from './../../core/security/user.service';
+import { UserService } from '../../core/security/user.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { PublishService } from './publish.service';
+import { ProductStoreService } from '../services/product-store.service';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SignInComponent } from '../../core/sign-in/sign-in.component';
 import { Subscription } from 'rxjs';
+import { ProductService } from '../services/product.service';
 
 @Component({
-  selector: 'ecm-publish',
-  templateUrl: './publish.component.html',
-  styleUrls: ['./publish.component.scss']
+  selector: 'ecm-product-publish',
+  templateUrl: './product-publish.component.html',
+  styleUrls: ['./product-publish.component.scss']
 })
-export class PublishComponent implements OnInit, OnDestroy {
+export class ProductPublishComponent implements OnInit, OnDestroy {
 
   user: firebase.User;
   submitted = false;
@@ -33,8 +34,8 @@ export class PublishComponent implements OnInit, OnDestroy {
 
   userSubs: Subscription;
 
-  constructor(private formBuilder: FormBuilder, private publishService: PublishService, private router: Router,
-    private userService: UserService, private modalService: NgbModal) { }
+  constructor(private formBuilder: FormBuilder, private productStorageService: ProductStoreService, private productService: ProductService,
+              private router: Router, private userService: UserService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.userSubs = this.userService.get().subscribe(
@@ -95,12 +96,12 @@ export class PublishComponent implements OnInit, OnDestroy {
   }
 
   saveProduct() {
-    this.publishService.uploadFiles(this.files).subscribe(
+    this.productStorageService.uploadFiles(this.files).subscribe(
       response => {
         const product = this.publishForm.value;
         product.images = response;
         product.user = this.user.uid;
-        this.publishService.saveProduct(product).then(
+        this.productService.add(product).then(
           () => this.router.navigate(['sales'])
         );
       }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../products/products.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'ecm-product-list',
@@ -10,7 +10,7 @@ export class ProductListComponent implements OnInit {
 
   products = this.productService.getAll();
 
-  constructor(private productService: ProductsService) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
 
