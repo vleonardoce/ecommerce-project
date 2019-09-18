@@ -1,0 +1,97 @@
+<div class="row">
+    <div class="col-md-8">
+  
+      <form [formGroup]="publishForm" class="m-4" (ngSubmit)="onSubmit()">
+  
+        <div class="form-group row">
+          <label for="email" class="col-md-2 col-form-label text-md-right">
+            Producto
+          </label>
+          <div class="col-md-9">
+            <input type="text" id="name" class="form-control" formControlName="name"
+              [class.is-invalid]="isInvalidControl('name')">
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="email" class="col-md-2 col-form-label text-md-right">
+            Precio
+          </label>
+          <div class="col-md-9">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">S/</span>
+              </div>
+              <input type="number" id="price" class="form-control" formControlName="price"
+                [class.is-invalid]="isInvalidControl('price')">
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="email" class="col-md-2 col-form-label text-md-right">
+            Cantidad
+          </label>
+          <div class="col-md-9">
+            <input type="number" id="stock" class="form-control" formControlName="stock"
+              [class.is-invalid]="isInvalidControl('stock')">
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="email" class="col-md-2 col-form-label text-md-right">
+            Descripción
+          </label>
+          <div class="col-md-9">
+            <textarea type="text" id="description" class="form-control" formControlName="description"
+              [class.is-invalid]="isInvalidControl('description')"></textarea>
+          </div>
+        </div>
+  
+        <div class="form-group row">
+  
+          <label for="email" class="col-md-2 col-form-label text-md-right">
+            Fotos
+          </label>
+          <div class="col-md-9">
+            <div class="dropzone" uiDropzone (hovered)="toggleHover($event)" (dropped)="onDrop($event)"
+              [class.hovering]="isHovering" [class.is-invalid]="isInvalidFilesLength()">
+  
+              <i class="fa fa-cloud-upload fa-2x m-3"></i>
+  
+              <div class="custom-file w-50">
+                <input type="file" class="custom-file-input" id="customFileLang" lang="es"
+                  (change)="onDrop($event.target.files)" multiple>
+                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+              </div>
+            </div>
+  
+            <small class="form-text text-muted">
+              Arrastra y suelta las imagenes. Solo jpg y png. Máximo 6 archivos.
+            </small>
+          </div>
+  
+        </div>
+  
+        <div class="row">
+          <div class="col offset-md-2">
+            <button type="submit" class="btn btn-primary">
+              Publicar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-5 preview" *ngFor="let preview of previews; let i = index">
+          <img [src]="preview" class="img-fluid" />
+          <button class="btn btn-danger" type="button" (click)="onRemove(i)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

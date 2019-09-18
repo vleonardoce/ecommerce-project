@@ -1,26 +1,47 @@
-<div class="container">
-  <div class="row product-header-section">
+<div class="card">
+  <div class="row">
+    <aside class="col-sm-5 border-right pr-0">
+      <ngb-carousel>
+        <ng-template *ngFor="let image of (item | async)?.images" ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="image" class="img-fluid">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </aside>
+    <aside class="col-sm-7">
+      <article class="card-body p-5">
+        <h3 class="title mb-3">{{(item | async)?.name}}</h3>
 
-    <div class="col-md-5">
-      <div class="product-img">
-        <img src="https://media.canalnet.tv/2019/09/iphone-11-974x550.jpg">
-      </div>
-    </div>
-
-    <div class="col-md-6 offset-1 product-header">
-
-      <h2>IPhone 11 como nuevo recién estrenado</h2>
-
-      <div class="prices">
-        <del class="price-old">$1980</del><br>
-        <h2><span class="price-new">$1280</span></h2>
-      </div>
-
-      <div class="delivery">
-        <span>Nacional e Internacional</span>
-      </div>
-
-      <button class="btn btn-primary btn-comprar">Comprar</button>
-    </div>
+        <p class="price-detail-wrap">
+          <span class="price h3 text-warning">
+            <span class="num"> {{(item | async)?.price | soles}}</span>
+          </span>
+        </p>
+        <dl class="item-property">
+          <dt>Descripción</dt>
+          <dd>
+            <p>{{(item | async)?.description}}</p>
+          </dd>
+        </dl>
+        <hr>
+        <div class="row">
+          <div class="col-sm-5">
+            <dl class="param param-inline">
+              <dt>Quantity: </dt>
+              <dd>
+                <select class="form-control form-control-sm" style="width:70px;">
+                  <option> 1 </option>
+                  <option> 2 </option>
+                  <option> 3 </option>
+                </select>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <hr>
+        <a routerLink="/ordenar" class="btn btn-lg btn-primary text-uppercase"> Comprar ahora </a>
+      </article>
+    </aside>
   </div>
 </div>

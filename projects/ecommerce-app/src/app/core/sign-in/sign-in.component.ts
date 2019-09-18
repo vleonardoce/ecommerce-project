@@ -23,6 +23,10 @@ export class SignInComponent {
 
   constructor(private formBuilder: FormBuilder, private securityService: SecurityService, private modalService: NgbModal) { }
 
+  close() {
+    this.modalService.dismissAll();
+  }
+
   signIn() {
     this.submitted = true;
 
