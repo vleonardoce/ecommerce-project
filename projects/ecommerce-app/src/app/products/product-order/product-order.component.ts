@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'ecm-product-order',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductOrderComponent implements OnInit {
 
-  constructor() { }
+  product;
+  quantity = 0;
+  total = 0;
+  stockList = [];
+
+  constructor(private productService: ProductService, private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.productService.get(this.productService.order.product).subscribe(product => {
+      this.product = product;
+      this.stockList = Array.from({ length: this.product.stock }, (v, k) => k + 1);
+      this.quantity = this.productService.order.quantity;
+      this.updateTotal();
+    });
   }
 
+  updateTotal() {
+    this.total = this.quantity * this.product.price;
+  }
+
+  close() {
+    this.modalService.dismissAll();
+  }
 }

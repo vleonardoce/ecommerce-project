@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SecurityService } from '../security/security.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -36,7 +36,7 @@ export class SignInComponent {
       this.securityService.signIn(user)
         .then(response => {
           this.securityService.saveUserInfo(response.user);
-          this.modalService.dismissAll();
+          this.close();
         })
         .catch(response => {
           this.signInForm.controls.password.setValue('');
@@ -55,7 +55,7 @@ export class SignInComponent {
       if (response.additionalUserInfo.isNewUser) {
         this.securityService.saveUserInfo(response.user);
       }
-      this.modalService.dismissAll();
+      this.close();
     });
   }
 }
