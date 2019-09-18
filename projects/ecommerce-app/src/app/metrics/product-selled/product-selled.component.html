@@ -12,7 +12,7 @@
           </h4>
         </div>
         <div class="row">
-             <lib-simple-bar-chart></lib-simple-bar-chart>
+          <lib-simple-bar-chart></lib-simple-bar-chart>
         </div>
       </div>
       <div class="col">
@@ -22,20 +22,7 @@
           </h4>
         </div>
         <div class="row">
-          <ngx-charts-bar-vertical-normalized
-          [view]="view"
-          [scheme]="colorScheme"
-          [results]="multi"
-          [gradient]="gradient"
-          [xAxis]="showXAxis"
-          [yAxis]="showYAxis"
-          [legend]="showLegend"
-          [showXAxisLabel]="showXAxisLabel"
-          [showYAxisLabel]="showYAxisLabel"
-          [xAxisLabel]="xAxisLabel"
-          [yAxisLabel]="yAxisLabel"
-          (select)="onSelect($event)">
-          </ngx-charts-bar-vertical-normalized>
+          <lib-complex-full-bar-chart></lib-complex-full-bar-chart>
         </div>
       </div>
     </div>
@@ -45,19 +32,6 @@
       </h4>
     </div>
     <div class="form-group row ml-5">
-      <ngx-charts-bar-vertical-stacked
-      [view]="view"
-      [scheme]="colorScheme"
-      [results]="multi"
-      [gradient]="gradient"
-      [xAxis]="showXAxis"
-      [yAxis]="showYAxis"
-      [legend]="showLegend"
-      [showXAxisLabel]="showXAxisLabel"
-      [showYAxisLabel]="showYAxisLabel"
-      [xAxisLabel]="xAxisLabel"
-      [yAxisLabel]="yAxisLabel"
-      (select)="onSelect($event)">
-      </ngx-charts-bar-vertical-stacked>
+      <lib-complex-bar-chart></lib-complex-bar-chart>
     </div>
 </div>
