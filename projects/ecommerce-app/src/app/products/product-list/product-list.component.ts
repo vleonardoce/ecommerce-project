@@ -12,13 +12,6 @@ export class ProductListComponent {
 
   products = this.productService.getAll();
 
-  constructor(private productService: ProductService, private modalService: NgbModal) { }
+  constructor(private productService: ProductService) { }
 
-  order(product) {
-    this.productService.order = {
-      product: product.id,
-      quantity: 1
-    };
-    this.modalService.open(ProductOrderComponent, { size: 'lg', centered: true });
-  }
 }
