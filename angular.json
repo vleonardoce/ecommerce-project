@@ -25,7 +25,8 @@
             "aot": false,
             "assets": [
               "projects/ecommerce-app/src/favicon.ico",
-              "projects/ecommerce-app/src/assets"
+              "projects/ecommerce-app/src/assets",
+              "projects/ecommerce-app/src/manifest.json"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -65,7 +66,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "projects/ecommerce-app/ngsw-config.json"
             }
           }
         },
@@ -95,7 +98,8 @@
             "karmaConfig": "projects/ecommerce-app/karma.conf.js",
             "assets": [
               "projects/ecommerce-app/src/favicon.ico",
-              "projects/ecommerce-app/src/assets"
+              "projects/ecommerce-app/src/assets",
+              "projects/ecommerce-app/src/manifest.json"
             ],
             "styles": ["projects/ecommerce-app/src/styles.scss"],
             "scripts": []
