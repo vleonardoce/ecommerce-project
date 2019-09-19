@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 })
 export class ProfileComponent implements OnInit, OnDestroy {
 
-  user = {};
+  user = null;
   userSubscription: Subscription;
 
   constructor(private securityService: SecurityService) { }

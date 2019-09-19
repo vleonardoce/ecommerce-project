@@ -25,115 +25,119 @@ export class ProductSelledComponent implements OnInit {
   showLabels = true;
   // data goes here
   public single = [
-  {
-    "name": "IPhone X",
-    "value": 120
-  },
-  {
-    "name": "Samsung S9",
-    "value": 200
-  },
-  {
-    "name": "Samsung S9 Plus",
-    "value": 150
-  },
-  {
-    "name": "Samsung S10",
-    "value": 100
-  },
-  {
-    "name": "Samsung S10 Plus",
-    "value": 210
-  },
-  {
-    "name": "Samsung Note 10 Plus",
-    "value": 100
-  }
-];
+    {
+      "name": "IPhone X",
+      "value": 120
+    },
+    {
+      "name": "Samsung S9",
+      "value": 200
+    },
+    {
+      "name": "Samsung S9 Plus",
+      "value": 150
+    },
+    {
+      "name": "Samsung S10",
+      "value": 100
+    },
+    {
+      "name": "Samsung S10 Plus",
+      "value": 210
+    },
+    {
+      "name": "Samsung Note 10 Plus",
+      "value": 100
+    }
+  ];
 
   public multi = [
-  {
-    "name": "IPhone X",
-    "series": [
-      {
-        "name": "2019",
-        "value": 120
-      },
-      {
-        "name": "2018",
-        "value": 100
-      }
-    ]
-  },
-  {
-    "name": "Samsung S9",
-    "series": [
-      {
-        "name": "2019",
-        "value": 200
-      },
-      {
-        "name": "2018",
-        "value": 90
-      }
-    ]
-  },
-  {
-    "name": "Samsung S9 Plus",
-    "series": [
-      {
-        "name": "2019",
-        "value": 150
-      },
-      {
-        "name": "2018",
-        "value": 110
-      }
-    ]
-  },
-  {
-    "name": "Samsung S10",
-    "series": [
-      {
-        "name": "2019",
-        "value": 100
-      },
-      {
-        "name": "2018",
-        "value": 90
-      }
-    ]
-  },
-  {
-    "name": "Samsung S10 Plus",
-    "series": [
-      {
-        "name": "2019",
-        "value": 210
-      },
-      {
-        "name": "2018",
-        "value": 100
-      }
-    ]
-  },
-  {
-    "name": "Samsung Note 10 Plus",
-    "series": [
-      {
-        "name": "2019",
-        "value": 100
-      },
-      {
-        "name": "2018",
-        "value": 0
-      }
-    ]
-  }
-];
+    {
+      "name": "IPhone X",
+      "series": [
+        {
+          "name": "2019",
+          "value": 120
+        },
+        {
+          "name": "2018",
+          "value": 100
+        }
+      ]
+    },
+    {
+      "name": "Samsung S9",
+      "series": [
+        {
+          "name": "2019",
+          "value": 200
+        },
+        {
+          "name": "2018",
+          "value": 90
+        }
+      ]
+    },
+    {
+      "name": "Samsung S9 Plus",
+      "series": [
+        {
+          "name": "2019",
+          "value": 150
+        },
+        {
+          "name": "2018",
+          "value": 110
+        }
+      ]
+    },
+    {
+      "name": "Samsung S10",
+      "series": [
+        {
+          "name": "2019",
+          "value": 100
+        },
+        {
+          "name": "2018",
+          "value": 90
+        }
+      ]
+    },
+    {
+      "name": "Samsung S10 Plus",
+      "series": [
+        {
+          "name": "2019",
+          "value": 210
+        },
+        {
+          "name": "2018",
+          "value": 100
+        }
+      ]
+    },
+    {
+      "name": "Samsung Note 10 Plus",
+      "series": [
+        {
+          "name": "2019",
+          "value": 100
+        },
+        {
+          "name": "2018",
+          "value": 0
+        }
+      ]
+    }
+  ];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(event) {
+
   }
 }

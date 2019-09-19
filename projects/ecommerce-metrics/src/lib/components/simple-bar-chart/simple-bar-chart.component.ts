@@ -25,35 +25,38 @@ export class SimpleBarChartComponent implements OnInit {
   showLabels = true;
   // data goes here
   public single = [
-  {
-    "name": "IPhone X",
-    "value": 150
-  },
-  {
-    "name": "Samsung S9",
-    "value": 200
-  },
-  {
-    "name": "Samsung S9 Plus",
-    "value": 150
-  },
-  {
-    "name": "Samsung S10",
-    "value": 100
-  },
-  {
-    "name": "Samsung S10 Plus",
-    "value": 210
-  },
-  {
-    "name": "Samsung Note 10 Plus",
-    "value": 100
-  }
-];
+    {
+      "name": "IPhone X",
+      "value": 150
+    },
+    {
+      "name": "Samsung S9",
+      "value": 200
+    },
+    {
+      "name": "Samsung S9 Plus",
+      "value": 150
+    },
+    {
+      "name": "Samsung S10",
+      "value": 100
+    },
+    {
+      "name": "Samsung S10 Plus",
+      "value": 210
+    },
+    {
+      "name": "Samsung Note 10 Plus",
+      "value": 100
+    }
+  ];
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSelect(event) {
+
+  }
 }
