@@ -1,3 +1,4 @@
+import { SaleService } from './services/sale.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list/product-list.component';
@@ -33,7 +34,8 @@ import { ProductShoopingComponent } from './product-shooping/product-shooping.co
   ],
   providers: [
     ProductService,
-    ProductStoreService
+    ProductStoreService,
+    SaleService
   ]
 })
 export class ProductsModule { }

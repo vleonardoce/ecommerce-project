@@ -27,10 +27,11 @@ export class ProductService {
   }
 
   add(product) {
-    return this.firestore.collection('products').add(product);
+    return this.firestore.collection(this.basePath).add(product);
   }
 
-  bought() {
-
+  sell(sale) {
+    const newStock = sale.product.stock - sale.quantity;
+    return this.firestore.doc(`${this.basePath}/${sale.product.id}`).update({ stock: newStock });
   }
 }

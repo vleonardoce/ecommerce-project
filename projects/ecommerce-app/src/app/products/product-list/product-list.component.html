@@ -5,7 +5,10 @@
         <img src="{{product.images[0]}}">
       </div>
       <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a [routerLink]="['producto', product.id]">{{ product.name }}</a></h6>
+        <h6 class="title text-dots">
+          <span *ngIf="product.stock<1" class="badge badge-pill badge-danger mr-3">No disponible</span>
+          <a [routerLink]="['producto', product.id]">{{ product.name }}</a>
+        </h6>
         <div class="action-wrap">
           <a class="btn btn-primary btn-sm float-right" [routerLink]="['producto', product.id]">
             Detalle

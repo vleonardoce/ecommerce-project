@@ -102,7 +102,7 @@ export class ProductPublishComponent implements OnInit, OnDestroy {
         product.images = response;
         product.user = this.user.uid;
         this.productService.add(product).then(
-          () => this.router.navigate(['sales'])
+          () => this.router.navigate(['ventas'])
         );
       }
     );

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ProductOrderComponent } from '../product-order/product-order.component';
 
 @Component({
   selector: 'ecm-product-list',

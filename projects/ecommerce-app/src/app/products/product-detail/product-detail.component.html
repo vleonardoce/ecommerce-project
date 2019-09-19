@@ -25,7 +25,10 @@
           </dd>
         </dl>
         <hr>
-        <div class="row">
+        <div *ngIf="product.stock<1" class="alert alert-danger" role="alert">
+          Producto no disponible
+        </div>
+        <div *ngIf="product.stock>0" class="row">
           <div class="col-sm-5">
             <dl class="param param-inline">
               <dt>Cantidad: </dt>
@@ -38,7 +41,7 @@
           </div>
         </div>
         <hr>
-        <button (click)="order()" type="button" class="btn btn-lg btn-primary text-uppercase">
+        <button *ngIf="product.stock>0" (click)="order()" type="button" class="btn btn-lg btn-primary text-uppercase">
           Comprar ahora
         </button>
       </article>

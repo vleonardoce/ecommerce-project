@@ -1,1 +1,25 @@
-<p>product-shooping works!</p>
+<h5 class="mb-3">Mis Compras</h5>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Fecha de compra</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Total</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sale of shopping | async">
+      <td>{{ sale.product.name }}</td>
+      <td>{{ sale.date | date:'medium' }}</td>
+      <td>{{ sale.product.price | soles }}</td>
+      <td>{{ sale.quantity }}</td>
+      <td>{{ (sale.product.price * sale.quantity) | soles }}</td>
+      <td>
+        <button type="button" class="btn btn-sm btn-info">Contactar al vendedor</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
