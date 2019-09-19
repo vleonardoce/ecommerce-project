@@ -28,6 +28,9 @@ import { ProductShoopingComponent } from './product-shooping/product-shooping.co
     FormsModule,
     ReactiveFormsModule
   ],
+  entryComponents: [
+    ProductOrderComponent
+  ],
   providers: [
     ProductService,
     ProductStoreService

@@ -7,14 +7,14 @@ export class ProductService {
 
   private basePath = '/products';
 
+  order;
+
   constructor(private firestore: AngularFirestore) { }
 
   get(id) {
     return this.firestore.doc(`${this.basePath}/${id}`).snapshotChanges().pipe(
       map(item => {
-        return {
-          ...item.payload.data()
-        };
+        return { id: item.payload.id, ...item.payload.data() };
       }));
   }
 

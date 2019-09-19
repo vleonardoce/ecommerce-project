@@ -7,7 +7,9 @@
       <figcaption class="info-wrap">
         <h6 class="title text-dots"><a [routerLink]="['producto', product.id]">{{ product.name }}</a></h6>
         <div class="action-wrap">
-          <a routerLink="/ordenar" class="btn btn-primary btn-sm float-right"> Comprar </a>
+          <a class="btn btn-primary btn-sm float-right" [routerLink]="['producto', product.id]">
+            Detalle
+          </a>
           <div class="price-wrap h5">
             <span class="price-new">{{ product.price | soles}}</span>
           </div>
