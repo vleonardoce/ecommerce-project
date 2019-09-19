@@ -136,8 +136,4 @@ export class ProductSelledComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  onSelect(event) {
-
-  }
 }

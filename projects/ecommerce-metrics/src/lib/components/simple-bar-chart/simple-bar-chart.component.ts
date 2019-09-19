@@ -57,6 +57,5 @@ export class SimpleBarChartComponent implements OnInit {
   }
 
   onSelect(event) {
-
   }
 }

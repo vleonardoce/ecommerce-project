@@ -2,10 +2,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'soles' })
 export class SolesPipe implements PipeTransform {
-  transform(value: string): string {
+  transform(value: any): string {
     if (!value) {
       return '';
     }
-    return 'S/ ' + value;
+    return 'S/ ' + String(value);
   }
 }

@@ -110,4 +110,6 @@ export class ComplexFullBarChartComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSelect(event) {
+  }
 }
