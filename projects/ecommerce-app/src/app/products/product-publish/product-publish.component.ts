@@ -28,6 +28,7 @@ export class ProductPublishComponent implements OnInit, OnDestroy {
   MIN_FILES = 1;
   VALID_FILES = ['image/jpeg', 'image/png'];
 
+  isSaving: boolean;
   isHovering: boolean;
   files: File[] = [];
   previews = [];
@@ -92,6 +93,7 @@ export class ProductPublishComponent implements OnInit, OnDestroy {
       return;
     }
 
+    this.isSaving = true;
     this.saveProduct();
   }
 
